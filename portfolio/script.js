@@ -50,6 +50,31 @@ window.addEventListener("scroll", () => {
   } else {
     navbar.classList.remove("scrolled");
   }
+
+  // Update navigation highlighting based on scroll position
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+  let currentSection = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.clientHeight;
+    if (winScroll >= sectionTop && winScroll < sectionTop + sectionHeight) {
+      currentSection = section.getAttribute("id");
+    }
+  });
+
+  // Handle hero section
+  if (winScroll < 100) {
+    currentSection = "home";
+  }
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${currentSection}`) {
+      link.classList.add("active");
+    }
+  });
 });
 
 /* --- THEME SWITCHER --- */
@@ -240,7 +265,7 @@ document.fonts.ready.then(() => {
    EMAILJS MODAL LOGIC
    ========================================== */
 (function () {
-  emailjs.init("MCsw62DHtGEAeEjRy"); // Public Key
+  emailjs.init(EMAILJS_CONFIG.publicKey);
 })();
 
 const modal = document.getElementById("email-modal");
@@ -275,23 +300,25 @@ document
     const originalText = btn.innerHTML;
     btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
 
-    emailjs.sendForm("service_535447c", "template_735cgmu", this).then(
-      function () {
-        btn.innerHTML = 'Sent Successfully! <i class="fas fa-check"></i>';
-        btn.style.background = "var(--success)";
-        setTimeout(() => {
-          modal.classList.remove("active");
-          btn.innerHTML = originalText;
-          btn.style.background = "var(--primary)";
-          document.getElementById("contact-form").reset();
-        }, 2000);
-      },
-      function (error) {
-        btn.innerHTML = "Failed. Try Again.";
-        btn.style.background = "var(--secondary)";
-        console.error("FAILED...", error);
-      }
-    );
+    emailjs
+      .sendForm(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, this)
+      .then(
+        function () {
+          btn.innerHTML = 'Sent Successfully! <i class="fas fa-check"></i>';
+          btn.style.background = "var(--success)";
+          setTimeout(() => {
+            modal.classList.remove("active");
+            btn.innerHTML = originalText;
+            btn.style.background = "var(--primary)";
+            document.getElementById("contact-form").reset();
+          }, 2000);
+        },
+        function (error) {
+          btn.innerHTML = "Failed. Try Again.";
+          btn.style.background = "var(--secondary)";
+          console.error("FAILED...", error);
+        }
+      );
   });
 
 /* ==========================================
@@ -304,7 +331,7 @@ function setupSmoothScroll(selector) {
     let isDown = false;
     let startX;
     let scrollLeft;
-    let autoScrollSpeed = 1;
+    let autoScrollSpeed = 0.1;
     let isPaused = false;
 
     // --- Drag Events ---
@@ -447,7 +474,7 @@ if (projectContainer) {
   let isDown = false;
   let startX;
   let scrollLeft;
-  let autoScrollSpeed = 1; // Adjust speed
+  let autoScrollSpeed = 0.05; // Adjust speed
   let isPaused = false;
 
   // --- Drag Functionality ---

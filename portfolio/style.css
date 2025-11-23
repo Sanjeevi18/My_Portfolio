@@ -460,7 +460,7 @@ canvas {
 
 /* --- General & Spotlight --- */
 .section {
-  padding: 100px 50px;
+  padding: 100px 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -721,13 +721,13 @@ canvas {
 }
 
 .skills-grid-track:nth-child(1) {
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 80s linear infinite;
 }
 .skills-grid-track:nth-child(2) {
-  animation: scroll-right 50s linear infinite;
+  animation: scroll-right 90s linear infinite;
 }
 .skills-grid-track:nth-child(3) {
-  animation: scroll-left 45s linear infinite;
+  animation: scroll-left 85s linear infinite;
 }
 
 @keyframes scroll-left {
@@ -895,16 +895,14 @@ canvas {
 
 /* Add fade effect for smooth edges */
 .desktop-grid-container::before,
-.desktop-grid-container::after,
 .credentials-container::before,
-.credentials-container::after,
 .tech-container::before,
 .tech-container::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100px;
+  width: 10px;
   z-index: 2;
   pointer-events: none;
 }
@@ -921,8 +919,6 @@ canvas {
   );
 }
 
-.desktop-grid-container::after,
-.credentials-container::after,
 .tech-container::after {
   right: 0;
   background: linear-gradient(
@@ -944,8 +940,6 @@ canvas {
   );
 }
 
-[data-theme="light"] .desktop-grid-container::after,
-[data-theme="light"] .credentials-container::after,
 [data-theme="light"] .tech-container::after {
   background: linear-gradient(
     to left,
@@ -990,11 +984,11 @@ canvas {
 
 /* Desktop continuous scroll setup */
 .desktop-grid-container .parallax-grid {
-  animation: continuous-scroll 60s linear infinite;
+  animation: continuous-scroll 240s linear infinite;
 }
 
 .credentials-container .credentials-track {
-  animation: continuous-scroll 70s linear infinite;
+  animation: continuous-scroll 280s linear infinite;
 }
 
 .parallax-grid,
@@ -1003,9 +997,9 @@ canvas {
   gap: 30px;
   width: max-content;
   perspective: 1000px;
-  padding: 0 20px;
+  padding: 0;
   /* Add animation for continuous scroll - seamless infinite loop */
-  animation: continuous-scroll 40s linear infinite;
+  animation: continuous-scroll 240s linear infinite;
 }
 
 @keyframes continuous-scroll {
@@ -1019,11 +1013,11 @@ canvas {
 
 /* Desktop continuous scroll setup */
 .desktop-grid-container .parallax-grid {
-  animation: continuous-scroll 60s linear infinite;
+  animation: continuous-scroll 180s linear infinite;
 }
 
 .credentials-container .credentials-track {
-  animation: continuous-scroll 70s linear infinite;
+  animation: continuous-scroll 200s linear infinite;
 }
 
 /* Ensure seamless infinite loop */
@@ -1835,7 +1829,7 @@ canvas {
     gap: 20px;
     width: max-content;
     padding: 0 20px;
-    animation: mobile-continuous-scroll 50s linear infinite;
+    animation: mobile-continuous-scroll 200s linear infinite;
     /* Keep animation always running for continuous effect */
     will-change: transform;
   }
@@ -1974,4 +1968,23 @@ canvas {
   [data-theme="light"] .mp-btn {
     color: #000;
   }
+}
+/* --- Footer --- */
+footer {
+  background: rgba(10, 10, 18, 0.5);
+  border-top: 1px solid var(--glass-border);
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+[data-theme="light"] footer {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.footer-bottom p {
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
 }
