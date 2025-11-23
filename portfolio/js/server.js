@@ -1,3 +1,6 @@
+// Load environment variables for local development (optional)
+require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
+
 const express = require("express");
 const path = require("path");
 const compression = require("compression");
