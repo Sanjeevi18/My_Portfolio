@@ -192,7 +192,7 @@ canvas {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: 15px 30px;
   background: rgba(10, 10, 18, 0.8);
   backdrop-filter: blur(15px);
   z-index: 1000;
@@ -203,7 +203,7 @@ canvas {
   user-select: none;
 }
 .navbar.scrolled {
-  padding: 10px 50px;
+  padding: 8px 30px;
   background: rgba(10, 10, 18, 0.95);
   backdrop-filter: blur(20px);
 }
@@ -276,7 +276,7 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 50px 0;
+  padding: 80px 30px 0;
 }
 .hero-container {
   display: flex;
@@ -460,7 +460,7 @@ canvas {
 
 /* --- General & Spotlight --- */
 .section {
-  padding: 100px 10px;
+  padding: 20px 10px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -886,7 +886,7 @@ canvas {
 .tech-container {
   width: 100%;
   overflow: hidden; /* Hide overflow for seamless scroll */
-  padding: 20px 0;
+  padding: 10px 0;
   position: relative;
   /* HIDE SCROLLBARS (The Key Part) */
   scrollbar-width: none; /* Firefox */
@@ -895,7 +895,9 @@ canvas {
 
 /* Add fade effect for smooth edges */
 .desktop-grid-container::before,
+.desktop-grid-container::after,
 .credentials-container::before,
+.credentials-container::after,
 .tech-container::before,
 .tech-container::after {
   content: "";
@@ -919,6 +921,8 @@ canvas {
   );
 }
 
+.desktop-grid-container::after,
+.credentials-container::after,
 .tech-container::after {
   right: 0;
   background: linear-gradient(
@@ -940,6 +944,8 @@ canvas {
   );
 }
 
+[data-theme="light"] .desktop-grid-container::after,
+[data-theme="light"] .credentials-container::after,
 [data-theme="light"] .tech-container::after {
   background: linear-gradient(
     to left,
@@ -982,13 +988,13 @@ canvas {
   position: relative;
 }
 
-/* Desktop continuous scroll setup */
+/* --- FIXED: Slower Desktop Scroll (180s & 200s) --- */
 .desktop-grid-container .parallax-grid {
-  animation: continuous-scroll 240s linear infinite;
+  animation: continuous-scroll 180s linear infinite;
 }
 
 .credentials-container .credentials-track {
-  animation: continuous-scroll 280s linear infinite;
+  animation: continuous-scroll 200s linear infinite;
 }
 
 .parallax-grid,
@@ -998,8 +1004,7 @@ canvas {
   width: max-content;
   perspective: 1000px;
   padding: 0;
-  /* Add animation for continuous scroll - seamless infinite loop */
-  animation: continuous-scroll 240s linear infinite;
+  animation: continuous-scroll 180s linear infinite;
 }
 
 @keyframes continuous-scroll {
@@ -1009,15 +1014,6 @@ canvas {
   100% {
     transform: translateX(-50%);
   }
-}
-
-/* Desktop continuous scroll setup */
-.desktop-grid-container .parallax-grid {
-  animation: continuous-scroll 180s linear infinite;
-}
-
-.credentials-container .credentials-track {
-  animation: continuous-scroll 200s linear infinite;
 }
 
 /* Ensure seamless infinite loop */
@@ -1523,8 +1519,22 @@ canvas {
 
   /* --- Enhanced Global Section Padding for Mobile --- */
   .section {
-    padding: 60px 15px;
+    padding: 20px 10px;
     overflow-x: hidden;
+  }
+
+  /* --- FIXED: Section Title Alignment on Mobile --- */
+  .section-title {
+    padding-left: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: 1.75rem;
+  }
+
+  .section-title::after {
+    width: 60px;
+    margin-left: 15px;
+    flex-shrink: 0;
   }
 
   /* Enhanced form responsiveness */
@@ -1549,7 +1559,7 @@ canvas {
 
   /* --- Enhanced Hero Section for Mobile --- */
   .hero {
-    padding: 100px 15px 60px;
+    padding: 80px 10px 40px;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -1559,6 +1569,15 @@ canvas {
     flex-direction: column-reverse;
     text-align: center;
     gap: 40px;
+    /* --- FIXED: Max Width Limit --- */
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .hero-text {
+    /* --- FIXED: Max Width Limit --- */
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .hero-text .name {
@@ -1574,15 +1593,23 @@ canvas {
     margin-bottom: 25px;
   }
 
+  /* --- FIXED: Mobile Button Layout --- */
   .cta-buttons {
     justify-content: center;
     gap: 12px;
+    flex-wrap: wrap !important;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 
   .hud-btn {
     padding: 14px 20px;
     font-size: 0.9rem;
-    min-width: 140px;
+    /* --- FIXED: Removed minimum width to prevent overflow --- */
+    min-width: unset !important;
+    width: auto;
+    flex: 1 1 auto;
   }
   .canvas-wrapper {
     width: 280px;
@@ -1671,11 +1698,12 @@ canvas {
     display: none;
   }
 
-  /* --- FIX 2: Skills Grid - Force Full Width but Keep Fade --- */
+  /* --- FIXED: Skills Grid & Marquee Widths --- */
   .skills-grid-container {
-    width: 100vw;
-    margin-left: -15px;
-    padding: 20px 0;
+    width: calc(100% + 20px) !important;
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+    padding: 20px 5px;
     /* Keep the fade effect on mobile for skills */
     -webkit-mask-image: linear-gradient(
       to right,
@@ -1703,8 +1731,8 @@ canvas {
     align-items: flex-start;
   }
   .navbar {
-    padding: 12px 15px;
-    min-height: 60px;
+    padding: 10px 10px;
+    min-height: 55px;
   }
 
   .hamburger {
@@ -1812,9 +1840,10 @@ canvas {
 
   /* --- Enhanced Mobile Project Scroll with Touch Support --- */
   .mobile-project-marquee {
-    width: 100vw;
-    margin-left: -20px;
-    margin-right: -20px;
+    /* --- FIXED: Width Calculation --- */
+    width: calc(100% + 20px) !important;
+    margin-left: -10px !important;
+    margin-right: -10px !important;
     padding: 20px 0;
     overflow: hidden; /* Changed from overflow-x: auto to hidden for infinite scroll */
     position: relative;
@@ -1828,7 +1857,7 @@ canvas {
     display: flex;
     gap: 20px;
     width: max-content;
-    padding: 0 20px;
+    padding: 0 10px;
     animation: mobile-continuous-scroll 200s linear infinite;
     /* Keep animation always running for continuous effect */
     will-change: transform;
@@ -1871,6 +1900,7 @@ canvas {
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
+    margin: 0 5px; /* Add margin to prevent edge cutoff */
   }
   .mobile-project-card .project-index {
     position: absolute;
@@ -1973,9 +2003,9 @@ canvas {
 footer {
   background: rgba(10, 10, 18, 0.5);
   border-top: 1px solid var(--glass-border);
-  padding: 30px 20px;
+  padding: 20px 20px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 [data-theme="light"] footer {
