@@ -885,11 +885,9 @@ canvas {
 .credentials-container,
 .tech-container {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden; /* Hide overflow for seamless scroll */
   padding: 20px 0;
   position: relative;
-  cursor: grab;
   /* HIDE SCROLLBARS (The Key Part) */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
@@ -987,6 +985,16 @@ canvas {
 /* --- PROJECTS: PARALLAX GRID (Desktop) --- */
 .desktop-grid-container {
   overflow: hidden; /* Hide the cloned content */
+  position: relative;
+}
+
+/* Desktop continuous scroll setup */
+.desktop-grid-container .parallax-grid {
+  animation: continuous-scroll 60s linear infinite;
+}
+
+.credentials-container .credentials-track {
+  animation: continuous-scroll 70s linear infinite;
 }
 
 .parallax-grid,
@@ -997,16 +1005,25 @@ canvas {
   perspective: 1000px;
   padding: 0 20px;
   /* Add animation for continuous scroll - seamless infinite loop */
-  animation: marquee-scroll 60s linear infinite;
+  animation: continuous-scroll 40s linear infinite;
 }
 
-@keyframes marquee-scroll {
+@keyframes continuous-scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* Desktop continuous scroll setup */
+.desktop-grid-container .parallax-grid {
+  animation: continuous-scroll 60s linear infinite;
+}
+
+.credentials-container .credentials-track {
+  animation: continuous-scroll 70s linear infinite;
 }
 
 /* Ensure seamless infinite loop */
@@ -1016,6 +1033,19 @@ canvas {
   animation-iteration-count: infinite;
   animation-fill-mode: none;
   animation-timing-function: linear;
+  will-change: transform;
+}
+
+/* Pause animation on hover for better user interaction */
+.desktop-grid-container:hover .parallax-grid,
+.credentials-container:hover .credentials-track {
+  animation-play-state: paused;
+}
+
+/* Resume on mouse leave */
+.desktop-grid-container .parallax-grid,
+.credentials-container .credentials-track {
+  animation-play-state: running;
 }
 
 .parallax-card {
@@ -1088,6 +1118,7 @@ canvas {
   line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1791,23 +1822,12 @@ canvas {
     margin-left: -20px;
     margin-right: -20px;
     padding: 20px 0;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden; /* Changed from overflow-x: auto to hidden for infinite scroll */
     position: relative;
-    cursor: grab;
     scrollbar-width: none;
     -ms-overflow-style: none;
     mask-image: none !important;
     -webkit-mask-image: none !important;
-    /* Enhanced touch scrolling */
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    /* Touch interaction improvements */
-    touch-action: pan-x;
-  }
-
-  .mobile-project-marquee:active {
-    cursor: grabbing;
   }
 
   .marquee-track {
@@ -1815,15 +1835,18 @@ canvas {
     gap: 20px;
     width: max-content;
     padding: 0 20px;
-    animation: marquee-scroll 80s linear infinite;
-    /* Pause animation on hover/touch for better interaction */
-    transition: animation-play-state 0.3s ease;
+    animation: mobile-continuous-scroll 50s linear infinite;
+    /* Keep animation always running for continuous effect */
+    will-change: transform;
   }
 
-  .mobile-project-marquee:hover .marquee-track,
-  .mobile-project-marquee:focus .marquee-track,
-  .mobile-project-marquee:active .marquee-track {
-    animation-play-state: paused;
+  @keyframes mobile-continuous-scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   .mobile-project-marquee::-webkit-scrollbar {

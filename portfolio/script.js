@@ -2,7 +2,37 @@ window.addEventListener("load", () => {
   const preloader = document.getElementById("preloader");
   preloader.style.opacity = "0";
   preloader.style.visibility = "hidden";
+
+  // Initialize continuous scroll for projects and credentials
+  initContinuousScroll();
 });
+
+/* --- CONTINUOUS SCROLL FUNCTIONALITY --- */
+function initContinuousScroll() {
+  // Duplicate content for seamless infinite scroll
+  duplicateScrollContent(".parallax-grid");
+  duplicateScrollContent(".credentials-track");
+  duplicateScrollContent(".marquee-track");
+}
+
+function duplicateScrollContent(selector) {
+  const container = document.querySelector(selector);
+  if (!container) return;
+
+  // Clone all children
+  const items = Array.from(container.children);
+  items.forEach((item) => {
+    const clone = item.cloneNode(true);
+    container.appendChild(clone);
+  });
+
+  // Double the content again for smoother infinite loop
+  const allItems = Array.from(container.children);
+  allItems.forEach((item) => {
+    const clone = item.cloneNode(true);
+    container.appendChild(clone);
+  });
+}
 
 window.addEventListener("scroll", () => {
   const winScroll =
