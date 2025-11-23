@@ -1,7 +1,6 @@
-👌Contact for web Projects or Application Projects
 # 🚀 Sanjeevi G - Portfolio Website
 
-A modern, responsive portfolio website showcasing my skills as a Full Stack Developer specializing in mobile and web development.
+A modern, responsive portfolio website showcasing my skills as a Full Stack Developer, now optimized for Node.js deployment on Render.
 
 ## 🌟 Features
 
@@ -11,7 +10,7 @@ A modern, responsive portfolio website showcasing my skills as a Full Stack Deve
 - **Email Contact Form** - Integrated with EmailJS for direct contact functionality
 - **Dynamic Content** - Auto-typing effect and infinite scrolling marquees
 - **Modern UI/UX** - Clean design with glassmorphism effects and smooth animations
-- **Performance Optimized** - Fast loading with preloader and optimized assets
+- **Performance Optimized** - Fast loading with Express.js server and compression
 
 ## 🛠️ Tech Stack
 
@@ -23,35 +22,43 @@ A modern, responsive portfolio website showcasing my skills as a Full Stack Deve
 - **Font Awesome** - Icon library for UI elements
 - **Google Fonts** - Poppins and Fira Code typography
 
-### Services
+### Backend
 
-- **EmailJS** - Email service integration for contact form
-- **GitHub Pages** - Hosting and deployment
+- **Node.js** - Runtime environment
+- **Express.js** - Web server framework
+- **Compression** - Gzip compression for better performance
 
-## 🎨 Design Features
+### Deployment
 
-- **Glassmorphism UI** - Modern frosted glass effects
-- **Parallax Scrolling** - Smooth scrolling animations
-- **Interactive Canvas** - Rotating tech stack visualization
-- **Continuous Marquee** - Auto-scrolling project and skills sections
-- **Spotlight Cards** - Mouse-following highlight effects
-- **Responsive Navigation** - Mobile-friendly hamburger menu
+- **Render.com** - Cloud hosting platform
 
-## 📱 Sections
+## 🚀 Quick Deploy to Render
 
-1. **Hero Section** - Introduction with dynamic typing effect
-2. **About** - Personal introduction and background
-3. **Skills** - Interactive tech stack with animations
-4. **Projects** - Showcase of development work
-5. **Credentials** - Education and certifications
-6. **Contact** - Email form and social links
+1. **Fork this repository** on GitHub
 
-## 🚀 Getting Started
+2. **Connect to Render:**
+
+   - Go to [render.com](https://render.com)
+   - Sign up with GitHub
+   - Click "New +" → "Web Service"
+   - Connect your forked repository
+
+3. **Configure deployment:**
+
+   - **Name**: `your-portfolio-name`
+   - **Environment**: `Node`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+   - **Instance Type**: `Free`
+
+4. **Deploy** - Render will automatically build and deploy your site!
+
+## 💻 Local Development
 
 ### Prerequisites
 
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Local web server (optional, for development)
+- Node.js (v18 or higher)
+- npm
 
 ### Installation
 
@@ -62,163 +69,140 @@ A modern, responsive portfolio website showcasing my skills as a Full Stack Deve
    cd Portfolio
    ```
 
-2. **Setup EmailJS (Optional)**
+2. **Install dependencies**
 
-   - Create an account at [EmailJS](https://www.emailjs.com/)
-   - Update the configuration in `keys.js`:
-     ```javascript
-     const EMAILJS_CONFIG = {
-       publicKey: "your_public_key",
-       serviceId: "your_service_id",
-       templateId: "your_template_id",
-     };
-     ```
+   ```bash
+   npm install
+   ```
 
-3. **Run locally**
+3. **Start development server**
 
-   - **Option 1**: Open `index.html` directly in your browser
-   - **Option 2**: Use a local server
+   ```bash
+   npm run dev
+   ```
 
-     ```bash
-     # Using Python
-     python -m http.server 8000
+   Or for production mode:
 
-     # Using Node.js (with live-server)
-     npx live-server
-     ```
+   ```bash
+   npm start
+   ```
 
-4. **Access the website**
-   - Direct: `file:///path/to/index.html`
-   - Local server: `http://localhost:8000`
+4. **Open in browser**
+   Navigate to `http://localhost:3000`
 
 ## 📁 Project Structure
 
 ```
 portfolio/
+├── assets/              # Images, resume, and static assets
+├── node_modules/        # Dependencies (auto-generated)
 ├── index.html          # Main HTML file
-├── style.css          # Stylesheet with all animations and responsive design
-├── script.js          # JavaScript functionality and interactions
-├── keys.js            # EmailJS configuration
-├── assets/            # Static assets
-│   ├── MYPIC.jpg      # Profile picture
-│   └── sanjeevi_resume.pdf  # Resume file
-└── README.md          # This file
+├── style.css           # Stylesheet with animations and responsive design
+├── script.js           # JavaScript functionality and interactions
+├── server.js           # Express server for production
+├── keys.js             # EmailJS configuration (gitignored)
+├── package.json        # Node.js dependencies and scripts
+├── .gitignore         # Git ignore file
+└── README.md          # This documentation
 ```
 
-## 🎯 Key Features Breakdown
+## ⚙️ Configuration
 
-### Interactive Canvas Animation
+### EmailJS Setup (Optional)
 
-- Rotating tech stack icons around a circular path
-- Hover effects that expand the circle and increase rotation speed
-- Responsive design that adapts to screen size
+1. Create account at [EmailJS](https://www.emailjs.com/)
+2. Update `keys.js`:
+   ```javascript
+   const EMAILJS_CONFIG = {
+     publicKey: "your_public_key",
+     serviceId: "your_service_id",
+     templateId: "your_template_id",
+   };
+   ```
 
-### Smooth Scrolling System
+### Environment Variables (Render)
 
-- Custom implementation for project cards and skill marquees
-- Auto-scrolling with pause on user interaction
-- Touch-friendly for mobile devices
+For production deployment, add these in Render dashboard:
 
-### Theme Switcher
-
-- Persistent theme storage in localStorage
-- Smooth transitions between light and dark modes
-- Dynamic icon updates
-
-### Contact Form
-
-- Integrated with EmailJS for serverless email functionality
-- Form validation and user feedback
-- Success/error state handling
-
-## 📱 Mobile Optimization
-
-- Touch-friendly navigation and interactions
-- Optimized marquee scrolling for mobile devices
-- Responsive breakpoints for all screen sizes
-- Mobile-first approach in CSS
+- `EMAILJS_PUBLIC_KEY`
+- `EMAILJS_SERVICE_ID`
+- `EMAILJS_TEMPLATE_ID`
 
 ## 🎨 Customization
 
-### Colors
+### Update Content
 
-Update CSS custom properties in `style.css`:
+- Modify personal info in `index.html`
+- Update skills in `script.js`
+- Replace `assets/MYPIC.jpg` with your photo
+- Add your resume as `assets/sanjeevi_resume.pdf`
+
+### Styling
+
+Update CSS variables in `style.css`:
 
 ```css
 :root {
   --primary: #00f2ea;
-  --secondary: #ff6b35;
-  --accent: #4facfe;
-  /* ... other variables */
+  --secondary: #ff0055;
+  /* ... customize colors */
 }
 ```
 
-### Content
+## 📱 Key Features
 
-- Update personal information in `index.html`
-- Modify skills array in `script.js`
-- Replace profile picture in `assets/MYPIC.jpg`
+- **Mobile Profile Animation** - Visible rotating tech rings on mobile
+- **Theme Switch** - Positioned next to hamburger menu on mobile
+- **Infinite Scroll** - Smooth auto-scrolling project and skill sections
+- **Contact Form** - Serverless email functionality
+- **Performance** - Compressed assets and optimized delivery
 
-### EmailJS Setup
+## 🌐 Deployment Options
 
-1. Create EmailJS account
-2. Setup email service and template
-3. Update `keys.js` with your credentials
+### Render (Recommended)
 
-## 🌐 Deployment
+- Free tier available
+- Automatic deployments from GitHub
+- Built-in SSL certificates
+- Custom domains supported
 
-### GitHub Pages
+### Alternative Platforms
 
-1. Push code to GitHub repository
-2. Go to repository Settings > Pages
-3. Select source branch (main)
-4. Access at: `https://yourusername.github.io/repository-name`
-
-### Other Platforms
-
-- **Netlify**: Drag and drop the folder
-- **Vercel**: Connect GitHub repository
-- **Firebase Hosting**: Use Firebase CLI
-
-## 🔧 Browser Support
-
-- Chrome 60+
-- Firefox 55+
-- Safari 12+
-- Edge 79+
-- Mobile browsers (iOS Safari, Chrome Mobile)
+- **Netlify**: Works with static files
+- **Vercel**: Supports Node.js apps
+- **Railway**: Node.js deployment
+- **Heroku**: Traditional PaaS option
 
 ## 📈 Performance
 
-- Lighthouse Score: 95+ (Performance, Accessibility, Best Practices, SEO)
-- Optimized images and assets
-- Minimal external dependencies
-- Efficient animation implementations
+- Express.js with compression middleware
+- Static asset caching
+- Optimized images and fonts
+- Lighthouse Score: 95+
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create feature branch (`git checkout -b feature/YourFeature`)
+3. Commit changes (`git commit -m 'Add YourFeature'`)
+4. Push to branch (`git push origin feature/YourFeature`)
+5. Open Pull Request
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 📞 Contact
 
-**Sanjeevi G**
+**Sanjeevi Gopalakrishnan**
 
-- Portfolio: [Live Demo](https://sanjeevi18.github.io/Portfolio)
-- GitHub: [@Sanjeevi18](https://github.com/Sanjeevi18)
-- Email: [Contact through portfolio](https://sanjeevi18.github.io/Portfolio#contact)
-
----
-
-⭐ **If you found this portfolio helpful, please give it a star!**
+- 🌐 **Portfolio**: [Live Demo](https://your-render-url.onrender.com)
+- 💼 **LinkedIn**: [linkedin.com/in/sanjeevi-g-969bb2224/](https://linkedin.com/in/sanjeevi-g-969bb2224/)
+- 🐱 **GitHub**: [@Sanjeevi18](https://github.com/Sanjeevi18)
+- 📧 **Email**: Contact through portfolio
 
 ---
+
+⭐ **Star this repo if it helped you!**
 
 _Built with ❤️ by Sanjeevi G_
