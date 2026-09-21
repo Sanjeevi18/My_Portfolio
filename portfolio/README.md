@@ -37,14 +37,12 @@ A modern, responsive portfolio website showcasing my skills as a Full Stack Deve
 1. **Fork this repository** on GitHub
 
 2. **Connect to Render:**
-
    - Go to [render.com](https://render.com)
    - Sign up with GitHub
    - Click "New +" → "Web Service"
    - Connect your forked repository
 
 3. **Configure deployment:**
-
    - **Name**: `your-portfolio-name`
    - **Environment**: `Node`
    - **Build Command**: `npm install`
@@ -134,7 +132,7 @@ For production deployment, add these in Render dashboard:
 
 - Modify personal info in `index.html`
 - Update skills in `script.js`
-- Replace `assets/MYPIC.jpg` with your photo
+- Replace `assets/mypic.jpeg` with your photo
 - Add your resume as `assets/sanjeevi_resume.pdf`
 
 ### Styling
