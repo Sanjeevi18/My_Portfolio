@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>Sanjeevi G | Portfolio</title>
 
     <link rel="icon" type="image/jpeg" href="/assets/MYPIC.jpg" />
@@ -113,6 +117,12 @@
               target="_blank"
               ><i class="fab fa-linkedin"></i
             ></a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.coreverse.donobooks"
+              target="_blank"
+              aria-label="Dono Books on Google Play"
+              ><i class="fab fa-google-play"></i
+            ></a>
             <a href="#" class="email-trigger"
               ><i class="fas fa-envelope"></i
             ></a>
@@ -212,12 +222,9 @@
     <section id="skills" class="section">
       <h2 class="section-title">Tech Stack</h2>
       <div class="skills-grid-container">
-        <div class="skills-grid-track" id="skills-track-1">
-          </div>
-        <div class="skills-grid-track" id="skills-track-2">
-          </div>
-        <div class="skills-grid-track" id="skills-track-3">
-          </div>
+        <div class="skills-grid-track" id="skills-track-1"></div>
+        <div class="skills-grid-track" id="skills-track-2"></div>
+        <div class="skills-grid-track" id="skills-track-3"></div>
       </div>
     </section>
 
@@ -231,16 +238,41 @@
           </div>
           <div class="job-details">
             <div class="job-header">
+              <h3>Full Stack Developer</h3>
+              <h4>
+                <i class="fas fa-building"></i> Mithra Home Tech Pvt. Ltd.
+              </h4>
+            </div>
+            <p>
+              Worked on Android and web applications using Flutter and Dart,
+              handling UI development, state management, REST API integration,
+              backend connectivity, PostgreSQL, and AWS deployment,
+              configuration, and troubleshooting. Full-time from April to June
+              2026, then part-time from July 2026 to the present.
+            </p>
+          </div>
+          <div class="job-year">
+            APR - JUN<br />2026<br />PART-TIME<br />PRESENT
+          </div>
+        </div>
+        <div class="mainframe-card spotlight archived-job">
+          <div class="status-indicator">
+            <div class="status-light yellow"></div>
+            <span class="status-text">ARCHIVED // INTERNSHIP</span>
+          </div>
+          <div class="job-details">
+            <div class="job-header">
               <h3>Flutter Developer</h3>
               <h4><i class="fas fa-building"></i> Coreverse Technologies</h4>
             </div>
             <p>
-              Developing high-performance cross-platform mobile applications
-              using Flutter and Firebase. Focusing on real-time data sync and
-              architecture optimization.
+              Developed and maintained mobile applications using Flutter and
+              Dart, including UI development, Firebase integration, and
+              application maintenance. Internship from September 2025 to
+              February 2026.
             </p>
           </div>
-          <div class="job-year">2025</div>
+          <div class="job-year">SEP 2025<br />FEB 2026</div>
         </div>
         <div class="mainframe-card spotlight archived-job">
           <div class="status-indicator">
@@ -458,16 +490,21 @@
               <div class="card-top">
                 <h3>Dono Books</h3>
                 <p class="project-desc">
-                  All-in-one business management solution focusing on scalability, 
-                  simplicity, and regulatory compliance.
+                  All-in-one business management solution focusing on
+                  scalability, simplicity, and regulatory compliance.
                 </p>
               </div>
               <div class="card-bottom">
                 <div class="tags">
-                  <span>Flutter</span><span>Firebase</span><span>Cloud Functions</span>
+                  <span>Flutter</span><span>Firebase</span
+                  ><span>Cloud Functions</span>
                 </div>
-                <a href="#" target="_blank" class="project-btn">
-                  View Code <i class="fas fa-arrow-right"></i>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.coreverse.donobooks"
+                  target="_blank"
+                  class="project-btn"
+                >
+                  View App <i class="fab fa-google-play"></i>
                 </a>
               </div>
             </div>
@@ -494,6 +531,54 @@
                   target="_blank"
                   class="project-btn"
                   >View Code <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="parallax-card spotlight">
+            <span class="project-index">10</span>
+            <div class="card-bg-icon"><i class="fab fa-aws"></i></div>
+            <div class="card-content">
+              <div class="card-top">
+                <h3>Cross-Account AWS Automation</h3>
+                <p class="project-desc">
+                  Personal practice project exploring secure automation between
+                  AWS accounts with temporary access.
+                </p>
+              </div>
+              <div class="card-bottom">
+                <div class="tags">
+                  <span>AWS Lambda</span><span>IAM</span><span>STS</span
+                  ><span>EC2</span><span>CloudTrail</span><span>Python</span
+                  ><span>Boto3</span>
+                </div>
+                <a href="#" class="project-btn"
+                  >Practice Project <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="parallax-card spotlight">
+            <span class="project-index">11</span>
+            <div class="card-bg-icon"><i class="fas fa-tools"></i></div>
+            <div class="card-content">
+              <div class="card-top">
+                <h3>Mithra Tech</h3>
+                <p class="project-desc">
+                  Service booking platform for installation, repair, and
+                  maintenance services, with separate customer and technician
+                  applications.
+                </p>
+              </div>
+              <div class="card-bottom">
+                <div class="tags">
+                  <span>Flutter</span><span>GetX</span><span>PostgreSQL</span
+                  ><span>AWS</span>
+                </div>
+                <a href="#" class="project-btn"
+                  >Case Study <i class="fas fa-arrow-right"></i
                 ></a>
               </div>
             </div>
@@ -594,13 +679,13 @@
           </div>
           <div class="mobile-project-card">
             <span class="project-index">06</span>
-            <div class="card-bg-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div class="card-bg-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
             <div class="mp-content">
               <h3>Cloth Weight Billing</h3>
               <p>Precision gram-level billing accuracy.</p>
-              <div class="mp-tags">
-                <span>Flutter</span><span>GetX</span>
-              </div>
+              <div class="mp-tags"><span>Flutter</span><span>GetX</span></div>
               <a
                 href="https://github.com/Sanjeevi18/TUP_Cloth_billing"
                 target="_blank"
@@ -635,8 +720,11 @@
               <div class="mp-tags">
                 <span>Flutter</span><span>Firebase</span>
               </div>
-              <a href="#" target="_blank" class="mp-btn"
-                >View Code <i class="fas fa-arrow-right"></i
+              <a
+                href="https://play.google.com/store/apps/details?id=com.coreverse.donobooks"
+                target="_blank"
+                class="mp-btn"
+                >View App <i class="fab fa-google-play"></i
               ></a>
             </div>
           </div>
@@ -654,6 +742,39 @@
                 target="_blank"
                 class="mp-btn"
                 >View Code <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="mobile-project-card">
+            <span class="project-index">10</span>
+            <div class="card-bg-icon"><i class="fab fa-aws"></i></div>
+            <div class="mp-content">
+              <h3>Cross-Account AWS Automation</h3>
+              <p>Secure cross-account access and EC2 automation practice.</p>
+              <div class="mp-tags">
+                <span>Lambda</span><span>IAM</span><span>STS</span
+                ><span>Boto3</span>
+              </div>
+              <a href="#" class="mp-btn"
+                >Practice Project <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="mobile-project-card">
+            <span class="project-index">11</span>
+            <div class="card-bg-icon"><i class="fas fa-tools"></i></div>
+            <div class="mp-content">
+              <h3>Mithra Tech</h3>
+              <p>
+                Customer and technician service booking apps for installation,
+                repair, and maintenance requests.
+              </p>
+              <div class="mp-tags">
+                <span>Flutter</span><span>GetX</span><span>PostgreSQL</span
+                ><span>AWS</span>
+              </div>
+              <a href="#" class="mp-btn"
+                >Case Study <i class="fas fa-arrow-right"></i
               ></a>
             </div>
           </div>
@@ -728,6 +849,21 @@
               </div>
             </div>
           </div>
+          <div class="cert-card spotlight">
+            <span class="project-index">06</span>
+            <div class="cert-icon"><i class="fab fa-aws"></i></div>
+            <div class="cert-content">
+              <div class="cert-info">
+                <h3>Cloud Master Program</h3>
+                <h4>Besant Technologies</h4>
+                <span class="cert-date">AWS Cloud and DevOps</span>
+                <p>
+                  Covered AWS Cloud, Linux Administration, CCNA Networking,
+                  Python, and DevOps.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -792,19 +928,39 @@
         <form id="contact-form">
           <div class="form-group">
             <label>Identity / Name</label>
-            <input type="text" name="from_name" placeholder="Enter your name" required />
+            <input
+              type="text"
+              name="from_name"
+              placeholder="Enter your name"
+              required
+            />
           </div>
           <div class="form-group">
             <label>Contact Frequency / Email</label>
-            <input type="email" name="reply_to" placeholder="Enter your email" required />
+            <input
+              type="email"
+              name="reply_to"
+              placeholder="Enter your email"
+              required
+            />
           </div>
           <div class="form-group">
             <label>Subject</label>
-            <input type="text" name="subject" placeholder="Project / Inquiry" required />
+            <input
+              type="text"
+              name="subject"
+              placeholder="Project / Inquiry"
+              required
+            />
           </div>
           <div class="form-group">
             <label>Message Data</label>
-            <textarea name="message" rows="5" placeholder="Type your message sequence here..." required></textarea>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Type your message sequence here..."
+              required
+            ></textarea>
           </div>
           <button type="submit" class="btn primary">
             Send Transmission <i class="fas fa-paper-plane"></i>
@@ -816,12 +972,13 @@
     <footer>
       <div class="footer-bottom">
         <p>
-          Designed & Built by Sanjeevi G © 2025 | Crafted with passion and precision
+          Designed & Built by Sanjeevi G © 2025 | Crafted with passion and
+          precision
         </p>
       </div>
     </footer>
 
     <script src="/js/keys.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="/js/script.js?v=4"></script>
   </body>
 </html>

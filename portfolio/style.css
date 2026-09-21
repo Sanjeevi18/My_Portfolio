@@ -57,7 +57,9 @@ body {
   font-family: var(--font-main);
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 /* Prevent text selection and image scrolling during drag */
@@ -105,7 +107,9 @@ canvas {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: opacity 0.5s ease-out, visibility 0.5s;
+  transition:
+    opacity 0.5s ease-out,
+    visibility 0.5s;
 }
 .loader-text {
   font-family: var(--font-code);
@@ -160,7 +164,9 @@ canvas {
     box-shadow: 0 0 10px rgba(0, 242, 234, 0.5);
   }
   100% {
-    box-shadow: 0 0 20px rgba(0, 242, 234, 0.8), 0 0 30px rgba(255, 0, 85, 0.3);
+    box-shadow:
+      0 0 20px rgba(0, 242, 234, 0.8),
+      0 0 30px rgba(255, 0, 85, 0.3);
   }
 }
 
@@ -220,11 +226,8 @@ canvas {
   left: 0;
   width: 100%;
   height: 200px;
-  background: radial-gradient(
-      2px 2px at 20px 30px,
-      rgba(0, 242, 234, 0.8),
-      transparent
-    ),
+  background:
+    radial-gradient(2px 2px at 20px 30px, rgba(0, 242, 234, 0.8), transparent),
     radial-gradient(2px 2px at 40px 70px, rgba(255, 0, 85, 0.6), transparent),
     radial-gradient(1px 1px at 90px 40px, rgba(0, 255, 136, 0.8), transparent),
     radial-gradient(
@@ -280,8 +283,10 @@ canvas {
   border-radius: 0;
   z-index: 1000;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(0, 242, 234, 0.1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(0, 242, 234, 0.1);
   min-height: 60px;
   user-select: none;
   animation: navbarFloat 6s ease-in-out infinite;
@@ -312,9 +317,13 @@ canvas {
     rgba(255, 0, 85, 0.2) 50%,
     rgba(0, 255, 136, 0.3) 100%
   );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   mask-composite: exclude;
   animation: borderGlow 3s ease-in-out infinite alternate;
   pointer-events: none;
@@ -344,15 +353,19 @@ canvas {
   padding: 10px 40px;
   background: rgba(10, 10, 18, 0.2);
   backdrop-filter: blur(30px) saturate(2);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 0 0 1px rgba(0, 242, 234, 0.2);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 0 1px rgba(0, 242, 234, 0.2);
   transform: none;
 }
 [data-theme="light"] .navbar {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(0, 212, 204, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 212, 204, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 0 1px rgba(0, 212, 204, 0.05);
+  box-shadow:
+    0 8px 32px rgba(0, 212, 204, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 0 1px rgba(0, 212, 204, 0.05);
   backdrop-filter: blur(25px) saturate(1.8);
 }
 
@@ -476,7 +489,9 @@ canvas {
   background: rgba(0, 242, 234, 0.08);
   border: 1px solid rgba(0, 242, 234, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 242, 234, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 8px 25px rgba(0, 242, 234, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links a.active {
@@ -726,7 +741,8 @@ canvas {
   border-radius: 50%;
   border: 1px solid transparent;
   /* Gradient border simulation */
-  background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
+  background:
+    linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
     linear-gradient(
         135deg,
         var(--primary) 0%,
@@ -763,7 +779,8 @@ canvas {
   position: relative;
   /* Glowing Border */
   border: 3px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 60px rgba(0, 242, 234, 0.15),
+  box-shadow:
+    0 0 60px rgba(0, 242, 234, 0.15),
     inset 0 0 20px rgba(0, 0, 0, 0.5);
   transition: all 0.5s ease;
   background: var(--bg-color); /* Prevents transparency issues */
@@ -898,9 +915,13 @@ canvas {
   pointer-events: none;
   border-radius: 16px;
   padding: 1px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   mask-composite: exclude;
 }
 .spotlight:hover::before,
@@ -1087,13 +1108,13 @@ canvas {
 }
 
 .skills-grid-track:nth-child(1) {
-  animation: scroll-left 80s linear infinite;
+  animation: scroll-left 30s linear infinite;
 }
 .skills-grid-track:nth-child(2) {
-  animation: scroll-right 90s linear infinite;
+  animation: scroll-right 35s linear infinite;
 }
 .skills-grid-track:nth-child(3) {
-  animation: scroll-left 85s linear infinite;
+  animation: scroll-left 32s linear infinite;
 }
 
 @keyframes scroll-left {
@@ -1438,7 +1459,9 @@ canvas {
   flex-direction: column;
   flex-shrink: 0;
   border: 1px solid var(--glass-border);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 [data-theme="light"] .parallax-card {
@@ -1934,7 +1957,9 @@ canvas {
   );
   color: #000;
   border: 2px solid var(--primary);
-  box-shadow: 0 4px 15px rgba(0, 242, 234, 0.3), 0 0 0 0 rgba(0, 242, 234, 0.5),
+  box-shadow:
+    0 4px 15px rgba(0, 242, 234, 0.3),
+    0 0 0 0 rgba(0, 242, 234, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   position: relative;
 }
@@ -1989,7 +2014,9 @@ canvas {
   transform: translateY(-2px) scale(1.02);
   background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
   color: var(--primary);
-  box-shadow: 0 8px 25px rgba(0, 242, 234, 0.4), 0 0 30px rgba(0, 242, 234, 0.3),
+  box-shadow:
+    0 8px 25px rgba(0, 242, 234, 0.4),
+    0 0 30px rgba(0, 242, 234, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -2004,7 +2031,9 @@ canvas {
 /* Active state */
 .btn.primary:active {
   transform: translateY(0) scale(0.98);
-  box-shadow: 0 2px 10px rgba(0, 242, 234, 0.3), 0 0 15px rgba(0, 242, 234, 0.2);
+  box-shadow:
+    0 2px 10px rgba(0, 242, 234, 0.3),
+    0 0 15px rgba(0, 242, 234, 0.2);
 }
 
 /* Light theme adjustments */
@@ -2016,14 +2045,17 @@ canvas {
   );
   color: #000;
   border: 2px solid var(--primary);
-  box-shadow: 0 4px 15px rgba(0, 212, 204, 0.25), 0 0 0 0 rgba(0, 212, 204, 0.4),
+  box-shadow:
+    0 4px 15px rgba(0, 212, 204, 0.25),
+    0 0 0 0 rgba(0, 212, 204, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 [data-theme="light"] .btn.primary:hover {
   background: linear-gradient(135deg, #000 0%, var(--primary) 100%);
   color: #fff;
-  box-shadow: 0 8px 25px rgba(0, 212, 204, 0.3),
+  box-shadow:
+    0 8px 25px rgba(0, 212, 204, 0.3),
     0 0 30px rgba(0, 212, 204, 0.25);
 }
 
@@ -2106,7 +2138,9 @@ canvas {
   background: rgba(0, 242, 234, 0.1);
   border: 1px solid rgba(0, 242, 234, 0.3);
   transform: scale(1.1) rotate(180deg);
-  box-shadow: 0 8px 25px rgba(0, 242, 234, 0.2), 0 0 30px rgba(0, 242, 234, 0.1);
+  box-shadow:
+    0 8px 25px rgba(0, 242, 234, 0.2),
+    0 0 30px rgba(0, 242, 234, 0.1);
 }
 
 .theme-btn:hover::before {
@@ -2133,6 +2167,139 @@ canvas {
 /* =================================================================
    MOBILE RESPONSIVENESS & SCROLL FIXES
    ================================================================= */
+
+/* Global Mobile Layout Fixes */
+@media (max-width: 900px) {
+  /* Prevent horizontal scrolling globally */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Fix any elements that might cause horizontal overflow */
+  * {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  /* Ensure all sections stay within viewport */
+  section,
+  .section,
+  .hero,
+  .about,
+  .skills,
+  .experience,
+  .projects,
+  .certifications,
+  .contact {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Improve text readability on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+/* Small mobile devices (320px - 480px) */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .section {
+    padding: 15px 8px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+
+  .hero {
+    padding: 70px 10px 30px;
+  }
+
+  .hero-text .name {
+    font-size: 1.8rem;
+    line-height: 1.1;
+  }
+
+  .hero-text .description {
+    font-size: 0.9rem;
+    padding: 0 5px;
+  }
+
+  .typing-container {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .hud-btn {
+    width: 90%;
+    max-width: 280px;
+    min-width: auto;
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+
+  .navbar {
+    padding: 8px 15px;
+  }
+
+  .canvas-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Medium mobile devices (481px - 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+  .section {
+    padding: 20px 12px;
+  }
+
+  .hero-text .name {
+    font-size: 2rem;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hud-btn {
+    flex: 1 1 calc(45% - 6px);
+    min-width: 140px;
+    max-width: 200px;
+  }
+}
+
+/* Large mobile/small tablet (769px - 900px) */
 @media (max-width: 900px) {
   .desktop-only {
     display: none !important;
@@ -2143,21 +2310,29 @@ canvas {
 
   /* --- Enhanced Global Section Padding for Mobile --- */
   .section {
-    padding: 20px 10px;
+    padding: 25px 15px;
     overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   /* --- FIXED: Section Title Alignment on Mobile --- */
   .section-title {
-    padding-left: 5px;
+    padding: 0 10px;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
+    text-align: center;
     font-size: 1.75rem;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
   .section-title::after {
-    width: 60px;
-    margin-left: 15px;
+    width: 80px;
+    margin: 0 auto;
     flex-shrink: 0;
   }
 
@@ -2165,20 +2340,27 @@ canvas {
   .modal-content {
     width: 95%;
     max-width: 400px;
-    margin: 20px;
+    margin: 20px auto;
     padding: 25px;
+    box-sizing: border-box;
   }
 
   .form-group input,
   .form-group textarea {
     font-size: 16px; /* Prevent zoom on iOS */
     padding: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
   }
 
   .transmit-btn {
     width: 100%;
     padding: 16px 30px;
     font-size: 1rem;
+    min-height: 48px; /* Improved touch target */
   }
 
   /* --- Enhanced Hero Section for Mobile --- */
@@ -2189,26 +2371,33 @@ canvas {
     align-items: center;
     width: 100%;
     overflow-x: hidden;
+    position: relative;
   }
 
   .hero-container {
     flex-direction: column-reverse;
     text-align: center;
-    gap: 40px;
-    /* --- FIXED: Max Width Limit --- */
+    gap: 30px;
     max-width: 100%;
     width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .hero-text {
-    /* --- FIXED: Max Width Limit --- */
     max-width: 100%;
     width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
-    padding: 0 5px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .hero-text .name {
@@ -2243,28 +2432,32 @@ canvas {
 
   /* --- FIXED: Mobile Button Layout --- */
   .cta-buttons {
+    display: flex;
     justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap !important;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
     width: 100%;
-    padding: 0 15px;
+    padding: 0 20px;
     box-sizing: border-box;
     max-width: 100%;
+    margin-top: 25px;
   }
 
   .hud-btn {
-    padding: 12px 18px;
-    font-size: 0.85rem;
-    /* --- FIXED: Removed minimum width to prevent overflow --- */
-    min-width: unset !important;
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    min-width: auto;
     width: auto;
-    flex: 1 1 auto;
-    max-width: 45%;
+    flex: 1 1 calc(50% - 6px);
+    max-width: 180px;
+    min-width: 140px;
     text-align: center;
     word-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    box-sizing: border-box;
   }
 
   .hud-btn .hud-text {
@@ -2398,23 +2591,23 @@ canvas {
 
   /* --- FIXED: Skills Grid & Marquee Widths --- */
   .skills-grid-container {
-    width: calc(100% + 20px) !important;
-    margin-left: -10px !important;
-    margin-right: -10px !important;
-    padding: 20px 5px;
+    width: 100%;
+    margin: 0;
+    padding: 20px 10px;
+    overflow: hidden;
     /* Keep the fade effect on mobile for skills */
     -webkit-mask-image: linear-gradient(
       to right,
       transparent,
-      black 10%,
-      black 90%,
+      black 5%,
+      black 95%,
       transparent
     );
     mask-image: linear-gradient(
       to right,
       transparent,
-      black 10%,
-      black 90%,
+      black 5%,
+      black 95%,
       transparent
     );
   }
@@ -2431,19 +2624,23 @@ canvas {
 
   /* --- NAVBAR & THEME SWITCH FIXES --- */
   .navbar {
-    top: 20px;
+    position: fixed;
+    top: 0;
     left: 0;
+    right: 0;
     transform: none;
     width: 100%;
     padding: 10px 20px;
     border-radius: 0;
-    min-height: 55px;
+    min-height: 60px;
     backdrop-filter: blur(20px);
-    background: rgba(10, 10, 18, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 10, 18, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
+    box-sizing: border-box;
   }
 
   /* Create a flex container for the right side elements */
@@ -2628,12 +2825,10 @@ canvas {
 
   /* --- Enhanced Mobile Project Scroll with Touch Support --- */
   .mobile-project-marquee {
-    /* --- FIXED: Width Calculation --- */
-    width: calc(100% + 20px) !important;
-    margin-left: -10px !important;
-    margin-right: -10px !important;
+    width: 100%;
+    margin: 0;
     padding: 20px 0;
-    overflow: hidden; /* Changed from overflow-x: auto to hidden for infinite scroll */
+    overflow: hidden;
     position: relative;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -2645,15 +2840,14 @@ canvas {
     display: flex;
     gap: 20px;
     width: max-content;
-    padding: 0 10px;
+    padding: 0 15px;
     animation: mobile-continuous-scroll 200s linear infinite;
-    /* Keep animation always running for continuous effect */
     will-change: transform;
   }
 
   @keyframes mobile-continuous-scroll {
     0% {
-      transform: translateX(0%);
+      transform: translateX(10%);
     }
     100% {
       transform: translateX(-50%);
@@ -2672,23 +2866,24 @@ canvas {
 
   /* Mobile Card Style */
   .mobile-project-card {
-    width: 300px; /* Fixed width for cards */
-    height: 350px;
+    width: 280px; /* Slightly smaller fixed width for better fit */
+    height: 320px; /* Adjusted height */
     background: linear-gradient(
       145deg,
       rgba(255, 255, 255, 0.03),
       rgba(255, 255, 255, 0.01)
     );
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 25px;
+    border-radius: 16px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
-    margin: 0 5px; /* Add margin to prevent edge cutoff */
+    margin: 0;
+    box-sizing: border-box;
   }
   .mobile-project-card .project-index {
     position: absolute;

@@ -265,7 +265,10 @@ document.fonts.ready.then(() => {
    EMAILJS MODAL LOGIC
    ========================================== */
 (function () {
-  emailjs.init(EMAILJS_CONFIG.publicKey);
+  const emailConfig = globalThis.EMAILJS_CONFIG;
+  if (emailConfig && emailConfig.publicKey) {
+    emailjs.init(emailConfig.publicKey);
+  }
 })();
 
 const modal = document.getElementById("email-modal");
@@ -296,29 +299,31 @@ document
   .getElementById("contact-form")
   .addEventListener("submit", function (event) {
     event.preventDefault();
+    const emailConfig = globalThis.EMAILJS_CONFIG;
+    if (!emailConfig) {
+      return;
+    }
     const btn = this.querySelector("button");
     const originalText = btn.innerHTML;
     btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
 
-    emailjs
-      .sendForm(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, this)
-      .then(
-        function () {
-          btn.innerHTML = 'Sent Successfully! <i class="fas fa-check"></i>';
-          btn.style.background = "var(--success)";
-          setTimeout(() => {
-            modal.classList.remove("active");
-            btn.innerHTML = originalText;
-            btn.style.background = "var(--primary)";
-            document.getElementById("contact-form").reset();
-          }, 2000);
-        },
-        function (error) {
-          btn.innerHTML = "Failed. Try Again.";
-          btn.style.background = "var(--secondary)";
-          console.error("FAILED...", error);
-        }
-      );
+    emailjs.sendForm(emailConfig.serviceId, emailConfig.templateId, this).then(
+      function () {
+        btn.innerHTML = 'Sent Successfully! <i class="fas fa-check"></i>';
+        btn.style.background = "var(--success)";
+        setTimeout(() => {
+          modal.classList.remove("active");
+          btn.innerHTML = originalText;
+          btn.style.background = "var(--primary)";
+          document.getElementById("contact-form").reset();
+        }, 2000);
+      },
+      function (error) {
+        btn.innerHTML = "Failed. Try Again.";
+        btn.style.background = "var(--secondary)";
+        console.error("FAILED...", error);
+      },
+    );
   });
 
 /* ==========================================
@@ -389,7 +394,6 @@ function setupSmoothScroll(selector) {
 document.addEventListener("DOMContentLoaded", () => {
   setupSmoothScroll(".desktop-grid-container"); // Projects
   setupSmoothScroll(".credentials-container"); // Credentials
-  populateSkills();
   createInfiniteScroll(".parallax-grid");
   createInfiniteScroll(".credentials-track");
   createInfiniteScroll(".marquee-track");
@@ -414,6 +418,7 @@ const skills = [
   { name: "CSS3", icon: "fab fa-css3-alt" },
   { name: "Tailwind", icon: "fas fa-wind" },
   { name: "Firebase", icon: "fas fa-fire" },
+  { name: "Firebase Firestore", icon: "fas fa-database" },
   { name: "Java", icon: "fab fa-java" },
   { name: "Git", icon: "fab fa-git-alt" },
   { name: "VS Code", icon: "fas fa-code" },
@@ -421,6 +426,24 @@ const skills = [
   { name: "MongoDB", icon: "fas fa-database" },
   { name: "PHP", icon: "fab fa-php" },
   { name: "MySQL", icon: "fas fa-database" },
+  { name: "PostgreSQL", icon: "fas fa-database" },
+  { name: "AWS", icon: "fab fa-aws" },
+  { name: "EC2", icon: "fas fa-server" },
+  { name: "S3", icon: "fas fa-cloud" },
+  { name: "IAM", icon: "fas fa-user-shield" },
+  { name: "VPC", icon: "fas fa-network-wired" },
+  { name: "Security Groups", icon: "fas fa-shield-alt" },
+  { name: "Terraform", icon: "fas fa-cubes" },
+  { name: "GitHub", icon: "fab fa-github" },
+  { name: "Linux", icon: "fab fa-linux" },
+  { name: "Shell Scripting", icon: "fas fa-terminal" },
+  { name: "TCP/IP", icon: "fas fa-network-wired" },
+  { name: "IPv4 Subnetting", icon: "fas fa-project-diagram" },
+  { name: "VLAN", icon: "fas fa-ethernet" },
+  { name: "Android Studio", icon: "fab fa-android" },
+  { name: "Postman", icon: "fas fa-paper-plane" },
+  { name: "Jira", icon: "fas fa-tasks" },
+  { name: "Cisco Packet Tracer", icon: "fas fa-network-wired" },
 ];
 
 function shuffle(array) {
@@ -464,6 +487,8 @@ function populateSkills() {
   track2.innerHTML = [...skills2, ...skills2].map(createSkillElement).join("");
   track3.innerHTML = [...skills3, ...skills3].map(createSkillElement).join("");
 }
+
+populateSkills();
 
 /* ==========================================
    MOBILE PROJECT SCROLL LOGIC
@@ -582,7 +607,7 @@ function initializeMobileEnhancements() {
 
   // Enhanced touch scrolling for mobile marquees
   const marqueeContainers = document.querySelectorAll(
-    ".mobile-project-marquee"
+    ".mobile-project-marquee",
   );
   marqueeContainers.forEach((container) => {
     let isScrolling = false;
@@ -603,7 +628,7 @@ function initializeMobileEnhancements() {
 
 function initializeProjectCardInteractions() {
   const projectCards = document.querySelectorAll(
-    ".mobile-project-card, .parallax-card"
+    ".mobile-project-card, .parallax-card",
   );
 
   projectCards.forEach((card) => {
