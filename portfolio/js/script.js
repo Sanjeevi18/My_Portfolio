@@ -499,7 +499,7 @@ if (projectContainer) {
   let isDown = false;
   let startX;
   let scrollLeft;
-  let autoScrollSpeed = 0.05; // Adjust speed
+  let autoScrollSpeed = 0.8; // Adjust speed
   let isPaused = false;
 
   // --- Drag Functionality ---
